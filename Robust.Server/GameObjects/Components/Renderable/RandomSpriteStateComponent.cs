@@ -5,7 +5,7 @@ using Robust.Shared.IoC;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 
-namespace Robust.Server.GameObjects
+namespace Robust.Server.GameObjects.Components.Renderable
 {
     [RegisterComponent]
     public class RandomSpriteStateComponent : Component
