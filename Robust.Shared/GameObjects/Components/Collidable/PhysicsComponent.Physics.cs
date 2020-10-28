@@ -169,6 +169,7 @@ namespace Robust.Shared.GameObjects.Components
         [Dependency] private readonly IDynamicTypeFactory _dynamicTypeFactory = default!;
 
         private float _mass = 1;
+        private float _friction = 1;
         private float _angularMass = 1;
         private Vector2 _linVelocity;
         private float _angVelocity;
@@ -185,6 +186,17 @@ namespace Robust.Shared.GameObjects.Components
             set
             {
                 _mass = value;
+                Dirty();
+            }
+        }
+
+        [ViewVariables(VVAccess.ReadWrite)]
+        public float Friction
+        {
+            get => _friction;
+            set
+            {
+                _friction = value;
                 Dirty();
             }
         }
@@ -243,9 +255,6 @@ namespace Robust.Shared.GameObjects.Components
         /// </remarks>
         [ViewVariables(VVAccess.ReadWrite)]
         public float Torque { get; set; }
-
-        [ViewVariables(VVAccess.ReadWrite)]
-        public float Friction { get; set; } = 0.3f;
 
         public float Restitution { get; set; } = 0.2f;
 
