@@ -275,7 +275,7 @@ namespace Robust.Shared.GameObjects.Components
                 if (value != Vector2.Zero)
                     WakeBody();
 
-                if (_linVelocity.EqualsApprox(value, 0.0001))
+                if (_linVelocity.EqualsApprox(value, 0.000001))
                     return;
 
                 _linVelocity = value;

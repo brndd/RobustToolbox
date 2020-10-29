@@ -6,6 +6,7 @@ using Robust.Shared.Interfaces.Map;
 using Robust.Shared.Interfaces.Physics;
 using Robust.Shared.Interfaces.Random;
 using Robust.Shared.Interfaces.Timing;
+using Robust.Shared.Log;
 using Robust.Shared.Map;
 using Robust.Shared.Maths;
 using Robust.Shared.Physics;
@@ -378,6 +379,7 @@ namespace Robust.Shared.GameObjects.Systems
             if (physics.LinearVelocity.Length > _speedLimit)
                 physics.LinearVelocity = physics.LinearVelocity.Normalized * _speedLimit;
 
+            Logger.Debug($"Our linear velocity is: {physics.LinearVelocity}");
             physics.WorldRotation += physics.AngularVelocity * frameTime;
             physics.WorldPosition += physics.LinearVelocity * frameTime;
         }
