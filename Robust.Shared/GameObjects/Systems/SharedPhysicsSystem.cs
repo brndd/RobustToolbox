@@ -379,7 +379,6 @@ namespace Robust.Shared.GameObjects.Systems
             if (physics.LinearVelocity.Length > _speedLimit)
                 physics.LinearVelocity = physics.LinearVelocity.Normalized * _speedLimit;
 
-            Logger.Debug($"Our linear velocity is: {physics.LinearVelocity}");
             physics.WorldRotation += physics.AngularVelocity * frameTime;
             physics.WorldPosition += physics.LinearVelocity * frameTime;
         }
