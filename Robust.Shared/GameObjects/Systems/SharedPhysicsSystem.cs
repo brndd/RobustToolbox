@@ -154,7 +154,7 @@ namespace Robust.Shared.GameObjects.Systems
 
             VelocitySolver();
 
-            ProcessFriction(_awakeBodies, frameTime);
+            ProcessFriction(simulatedBodies, frameTime);
 
             CollisionBehaviors();
 
@@ -418,7 +418,7 @@ namespace Robust.Shared.GameObjects.Systems
                 var friction = GetFriction(body);
 
                 // friction between the two objects - Static friction not modelled
-                var dynamicFriction = MathF.Sqrt(friction * body.Friction) * 9.8f * body.LinearVelocity.Length * frameTime;
+                var dynamicFriction = friction * body.Friction * 9.8f * frameTime;
 
                 if (dynamicFriction == 0.0f)
                     return;
